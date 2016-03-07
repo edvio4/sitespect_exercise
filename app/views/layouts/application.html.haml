@@ -1,0 +1,23 @@
+%html{ :lang => "en"}
+  %head
+  %meta{:charset => "utf-8"}/
+  %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+  %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "application", 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+  %body
+    = render 'layouts/topbar'
+    - unless flash.now[:errors].nil?
+      .row
+        .small-12.columns.top_error= "Configuration not saved. See errors for more details."
+    - unless flash[:notice].nil?
+      .row
+        .small-12.columns.flash_notice= flash[:notice]
+
+    .row.nav
+      .small-12.columns
+        .line1= "<span class='bold'>Site Management</span> <span class='triangle'>&#x25B6;</span> <span class='bold'>Configuration</span>".html_safe
+        .line2= "Configuration"
+    = yield

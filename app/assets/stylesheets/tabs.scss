@@ -1,0 +1,72 @@
+@import 'colors';
+
+#form-tabs {
+  margin-left: 1em;
+}
+
+
+.tabs-title.is-active {
+  background-color: white;
+  border-top: 2px solid $border-blue;
+  border-left: 2px solid $border-blue;
+  border-right: 2px solid $border-blue;
+  border-bottom: 4px solid white;
+  position:relative;
+  margin-bottom: -4px;
+  z-index: 10;
+
+  &:before {
+    background: none;
+    border-top: 2px solid $light-gray;
+    border-left: 2px solid $light-gray;
+    border-right: 2px solid $light-gray;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    pointer-events: none;
+  }
+
+  #panel1-label, #panel2-label {
+    color: black;
+    font-size: 1em;
+  }
+
+}
+
+.tabs-title {
+  margin-right: .5em;
+  background-color: $blue;
+  border-top: 2px solid $dark-blue;
+  border-left: 2px solid $dark-blue;
+  border-right: 2px solid $dark-blue;
+
+  #panel1-label, #panel2-label {
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
+
+.tabs-panel.is-active {
+  z-index: 9;
+  border: 2px solid $border-blue;
+  position:relative;
+  margin-right: .5em;
+
+  &:before {
+    background: none;
+    border: 2px solid $light-gray;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    pointer-events: none;
+  }
+}

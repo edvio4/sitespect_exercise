@@ -1,0 +1,59 @@
+.variations_input
+  = f.label :variations, 'Maximum number of Variations in Variation Group'
+  .row
+    .small-4.medium-3.large-2.columns
+      = f.text_field :variations
+.error
+  - unless flash.now[:errors].nil?
+    - index = flash.now[:errors].index {|x| x =~ /Variations/}
+    - unless index.nil?
+      = "Enter number between 1-100."
+
+.behavior_select
+  = f.label :behavior, 'Default behavior for tracking Response Point hits in Campaigns'
+  .row
+    .small-9.medium-5.large-3.columns
+      = f.select :behavior, ['track from initial assignment']
+
+
+.search_text_failures
+  = f.check_box :search_text_failures, {checked: true}, true, false
+  = f.label :search_text_failures, "Feature to detect Variation Search Text failures should be <span class='underline' >enabled</span> by default".html_safe
+
+.amps
+  = f.check_box :amps, {}, true, false
+  = f.label :amps, "Enable AMPS"
+
+- unless @amps.nil?
+  - if @amps
+    .amps_configuration
+      = f.label :amps_configuration, 'AMPS Configuration'
+      = f.text_area :amps_configuration
+
+.origin_experiments
+  = f.check_box :origin_experiments, {}, true, false
+  = f.label :origin_experiments, "Enable Origin Experiments"
+
+- unless @origin_experiments.nil?
+  - if @origin_experiments
+    .campaign_delimiter
+      = f.label :campaign_delimiter, 'Campaign Delimiter'
+      .row.campaign_delimiter_input
+        .small-4.medium-3.large-2.columns
+          = f.text_field :campaign_delimiter
+      .error
+        - unless flash.now[:errors].nil?
+          - index = flash.now[:errors].index {|x| x =~ /Campaign delimiter/}
+          - unless index.nil?
+            = "Campaign Delimiter can't be empty if 'Enable Origin Experiments' is selected."
+
+    .factor_delimiter
+      = f.label :factor_delimiter, 'Factor Delimiter'
+      .row.factor_delimiter_input
+        .small-4.medium-3.large-2.columns
+          = f.text_field :factor_delimiter
+      .error
+        - unless flash.now[:errors].nil?
+          - index = flash.now[:errors].index {|x| x =~ /Factor delimiter/}
+          - unless index.nil?
+            = "Factor Delimiter can't be empty if 'Enable Origin Experiments' is selected."

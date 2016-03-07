@@ -1,0 +1,61 @@
+@import "colors";
+
+.row.status {
+  label {
+    display: inline;
+    margin-right: 1.5rem;
+  }
+  span {
+    margin-right: .7rem;
+    font-size: .9rem;
+  }
+}
+
+.amps_configuration textarea {
+  height: 140px;
+}
+
+.error, .top_error {
+  color: red;
+  font-size: .8rem;
+}
+
+.top_error, .flash_notice {
+  margin-bottom: 10px;
+}
+
+.flash_notice {
+  color: green;
+}
+
+
+input[type="text"] {
+  margin-bottom: 1px;
+}
+
+.row.url {
+  margin-bottom: 15px;
+}
+
+.status, .behavior_select, .factor_delimiter {
+  margin-top: 15px;
+}
+
+.actions {
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+input[type="submit"] {
+  font-weight: bold;
+  background-color: $dark-blue;
+}
+
+
+.button.discard {
+  font-weight: bold;
+  color: black;
+  background-color: $light-gray;
+  border: 1px solid $dark-blue;
+  margin-left: 5px;
+}

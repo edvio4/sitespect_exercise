@@ -1,0 +1,32 @@
+.row.site_name
+  .small-8.columns
+    = f.label :site_name, 'Site Name'
+    = f.text_field :site_name
+    .error
+      - unless flash.now[:errors].nil?
+        - index = flash.now[:errors].index {|x| x =~ /Site name/}
+        - unless index.nil?
+          = "Site Name can't be blank."
+
+.row.status
+  .small-12.columns
+    = f.label :status, 'Status:'
+    = f.radio_button :status, 'online', :checked => true
+    %span.radio_button_status_online_label= "Online"
+    = f.radio_button :status, 'offline'
+    %span.radio_button_status_offline_label= "Offline"
+    = f.radio_button :status, 'pass-through'
+    %span.radio_button_status_pass-through_label= "Pass-Through"
+
+.row.url
+  .small-8.columns
+    = f.label :url, 'Default URL for Preview'
+    = f.text_field :url, placeholder: "http://"
+    .error
+      - unless flash.now[:errors].nil?
+        - index = flash.now[:errors].index {|x| x =~ /Url can't/}
+        - index1 = flash.now[:errors].index {|x| x =~ /Url is/}
+        - unless index.nil?
+          = "URL can't be blank."
+        - else
+          = "URL is not valid."
