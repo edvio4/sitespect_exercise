@@ -1,4 +1,6 @@
 # Sitespect Exercise
+
+I made this app using Ruby on Rails.  I used Foundation for styling.  There is also jQuery on the frontend to make the experience RESTful experience.
  
 ## Running locally
 ```
